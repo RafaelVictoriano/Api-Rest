@@ -42,12 +42,11 @@ public class AutenticacaoViaToken extends OncePerRequestFilter {
 
         UsernamePasswordAuthenticationToken authentication = new  UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities()); //Criando autenticacao de token | Não passa a senha porque já está autenticado, Authorities pega seus perfis de autorização
 
-        SecurityContextHolder.getContext().setAuthentication(authentication); //Força autenticação
+        SecurityContextHolder.getContext().setAuthentication(authentication); //Força autenticação e indica que o cliente esta autenticado
     }
 
-    private String recuperaToken(HttpServletRequest httpServletRequest) {
-        String token = httpServletRequest.getHeader("Authorization"); //Qual cabeçalho quer recuperar
-        System.out.println(token);
+    private String recuperaToken(HttpServletRequest request) {
+        String token = request.getHeader("Authorization"); //Qual cabeçalho quer recuperar
 
         if(token == null || token.isEmpty() || !token.startsWith("Bearer ")){ //verificando se o cabeçalho esta vazio
             return null;

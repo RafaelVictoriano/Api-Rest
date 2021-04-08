@@ -49,10 +49,11 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/topicos").permitAll()
                 .antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll()
+                .antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
         .anyRequest().authenticated()
         .and().csrf().disable()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//Mudar o modo de autenticação para stateless não cookies
-        .and().addFilterBefore(new AutenticacaoViaToken( tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class);
+        .and().addFilterBefore(new AutenticacaoViaToken( tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class); //habilitar noSpring security
     }
 
     //Config de recursos staticos
