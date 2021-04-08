@@ -2,6 +2,7 @@ package br.com.alura.forum.Dto;
 
 import br.com.alura.forum.modelo.StatusTopico;
 import br.com.alura.forum.modelo.Topico;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
+@Getter
 public class DatalhesTopicoDto {
 
     private Long id;
@@ -28,33 +30,5 @@ public class DatalhesTopicoDto {
         this.statusTopico = topico.getStatus();
         this.resposta = new ArrayList<>();
         this.resposta.addAll(topico.getRespostas().stream().map(RespotaDto::new).collect(Collectors.toList()));
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public String getNomeAutor() {
-        return nomeAutor;
-    }
-
-    public StatusTopico getStatusTopico() {
-        return statusTopico;
-    }
-
-    public List<RespotaDto> getResposta() {
-        return resposta;
     }
 }

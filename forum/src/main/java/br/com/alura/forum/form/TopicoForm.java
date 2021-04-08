@@ -6,6 +6,7 @@ import br.com.alura.forum.repository.CursoRepository;
 import com.sun.istack.NotNull;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -24,7 +25,7 @@ public class TopicoForm {
 
     public Topico converter(CursoRepository cursoRepository) {
        Curso nome = cursoRepository.findByNome(nomeCurso);
-       return new Topico(this.titulo, this.mensagem, nome );
+       return new Topico(this.titulo, this.mensagem, nome);
     }
 }
 

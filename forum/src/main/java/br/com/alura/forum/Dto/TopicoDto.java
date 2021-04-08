@@ -1,12 +1,13 @@
 package br.com.alura.forum.Dto;
 
 import br.com.alura.forum.modelo.Topico;
+import lombok.Getter;
 import org.springframework.data.domain.Page;
 
 
 import java.time.LocalDateTime;
 
-
+@Getter
 public class TopicoDto {
 
     private Long id;
@@ -21,21 +22,6 @@ public class TopicoDto {
         this.dataCriacao = topico.getDataCriacao();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
 
     public static Page<TopicoDto> converter(Page<Topico> topico){
         return  topico.map(TopicoDto::new);//Esta convertendo o topico em topico dto, map esta fazendo mapeamento;

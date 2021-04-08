@@ -1,9 +1,13 @@
 package br.com.alura.forum.Dto;
 
 import br.com.alura.forum.modelo.Resposta;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
 public class RespotaDto {
 
     private Long id;
@@ -18,19 +22,5 @@ public class RespotaDto {
         this.nomeAutor = resposta.getAutor().getNome();
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public String getNomeAutor() {
-        return nomeAutor;
-    }
 }
