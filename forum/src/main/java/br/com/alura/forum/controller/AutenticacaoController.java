@@ -29,14 +29,12 @@ public class AutenticacaoController {
     @PostMapping
     public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid LoginForm loginForm){
         UsernamePasswordAuthenticationToken dadosLogin = loginForm.converter();
-
         try {
             Authentication authenticate = authManager.authenticate(dadosLogin);
             String token = tokenService.gerarToken( authenticate);
 
-            return ResponseEntity.ok(new TokenDto(token, "Bearer")); //berare mecanismo de autenticação
+            return ResponseEntity.ok(new TokenDto(token, "Bearer"));
         }catch (AuthenticationException e){
-
             return ResponseEntity.ok().build();
         }
 

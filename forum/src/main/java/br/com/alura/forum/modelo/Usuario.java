@@ -18,7 +18,6 @@ public class Usuario  implements UserDetails {
 	private String nome;
 	private String email;
 	private String senha;
-
 	@ManyToMany(fetch = FetchType.EAGER) //Eaguer porque quando o chamar o usuario a lista de de perfis também ira ser exibida
 	private List<Perfil> perfis = new ArrayList<Perfil>();
 

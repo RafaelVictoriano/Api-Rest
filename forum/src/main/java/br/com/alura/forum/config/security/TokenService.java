@@ -28,7 +28,7 @@ public class TokenService {
         Date data = new Date();
         Date exp = new Date(data.getTime()+Long.parseLong(expiration));
         return Jwts.builder()
-                .setIssuer("Foruma alura")
+                .setIssuer("Forum alura")
                 .setSubject(logado.getId().toString()) //identifica quem esta logado  Tostring trasnforma em string
                 .setIssuedAt(data) //data
                 .setExpiration(exp)//experição quando tempo pode ficar logado
