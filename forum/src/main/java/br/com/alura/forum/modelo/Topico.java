@@ -20,7 +20,7 @@ public class Topico {
 	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
 	@ManyToOne
-    private Usuario autor;
+        private Usuario autor;
 	@ManyToOne
 	private Curso curso;
 
